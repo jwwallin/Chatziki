@@ -7,11 +7,26 @@ console.log('listening on port ', port);
 io.on('connection', (socket) => {
     console.log("received connection");
     socket.join('general');
-    io.emit('success');
-    io.to('general').emit('message', {
+    io.emit('init', {
+        user: {
+            id: 0,
+            name: "rand",
+            admin: false
+        },
+        users: [], 
+        channels:[
+            {
+                key: 0,
+                name: "general",
+                messages: [
+                ]
+            }
+        ]
+    });
+    io.to('0').emit('message', {
         key: 0,
-        channel: "general",
-        user: "rand",
+        channel: 0,
+        user: 0,
         timestamp: new Date(),
         content: "Yo dawg!"
     });
