@@ -22,3 +22,7 @@ tzatt_wit_konste
   * Send list of users
   * Send some of the newest messages
 * message <data>
+
+#Installing mongoDB
+Install according to this tutorial:
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
