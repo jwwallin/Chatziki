@@ -6,7 +6,7 @@ console.log('listening on port ', port);
 
 io.on('connection', (socket) => {
     console.log("received connection");
-    socket.join('general');
+    socket.join('0');
     io.emit('init', {
         user: {
             id: 0,
