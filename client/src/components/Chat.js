@@ -14,6 +14,8 @@ export default class Chat extends Component {
       messages: []
     };
 
+    socket.on('success', () => console.log('The socket works!'));
+
     socket.on('message', (data) => {
       console.log("incometh data: " + data);
       var newMessages = this.state.messages.slice();
@@ -22,14 +24,9 @@ export default class Chat extends Component {
     });
   }
 
-  componentDidMount() {
-    socket.on('success', () => console.log('The socket works!'));
-    console.log("Mounted!");
-  }
-
   render() {
-    const messages = this.state.messages.map((message, i) => {
-      return <Message username={i} content={message} />
+    const messages = this.state.messages.map(message => {
+      return <Message username={message.user} content={message.content} />
     });
 
     return (

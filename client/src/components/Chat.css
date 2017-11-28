@@ -1,6 +1,7 @@
 .Chat {
   text-align: left;
   display: inline-block;
-  width: 800px
+  width: 800px;
+  padding: 20px
 }
 
