@@ -6,8 +6,13 @@ console.log('listening on port ', port);
 
 io.on('connection', (socket) => {
     console.log("received connection");
-    socket.join('room');
+    socket.join('general');
     io.emit('success');
-    io.to('room').emit('message', "Yo dawg!");
+    io.to('general').emit('message', {
+        key: 0,
+        channel: "general",
+        user: "rand",
+        timestamp: new Date(),
+        content: "Yo dawg!"
+    });
 });
-
