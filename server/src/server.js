@@ -15,4 +15,16 @@ io.on('connection', (socket) => {
         timestamp: new Date(),
         content: "Yo dawg!"
     });
+    socket.on('message', (data) => {
+        let user = ""; //read user from DB using socket.handshake.decoded_token.email
+        let message = {
+            channel: data.channel,
+            user: user,
+            timestamp: new Date(),
+            content: data.text
+        };
+        //save to database
+        //read from database
+        io.to(message.channel).emit(message);
+    });
 });
