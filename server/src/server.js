@@ -7,39 +7,59 @@ console.log('listening on port ', port);
 io.on('connection', (socket) => {
     console.log("received connection");
     socket.join('0');
-    io.emit('init', {
-        user: {
-            id: 0,
-            name: "rand",
-            admin: false
-        },
-        users: [], 
-        channels:[
-            {
-                key: 0,
-                name: "general",
-                messages: [
-                ]
-            }
-        ]
+
+    //received events
+    socket.on('action', (action) => {
+        switch (action.type) {
+            case 'message':
+                let user = ""; //read user from DB using socket.handshake.decoded_token.email
+                let action = {
+                    type: 'message',
+                    message: {
+                        channel: data.channel,
+                        user: user,
+                        timestamp: new Date(),
+                        content: data.text
+                    }
+                };
+                //save to database
+                //read from database
+                io.to(action.message.channel).emit('action', action);
+                break;
+
+            default:
+                break;
+        }
     });
-    io.to('0').emit('message', {
-        key: 0,
-        channel: 0,
-        user: 0,
-        timestamp: new Date(),
-        content: "Yo dawg!"
+
+    // emits
+    socket.emit('action', {
+        type: 'init',
+        data: {
+            user: {
+                id: 0,
+                name: "rand",
+                admin: false
+            },
+            users: [],
+            channels: [
+                {
+                    key: 0,
+                    name: "general",
+                    messages: [
+                    ]
+                }
+            ]
+        }
     });
-    socket.on('message', (data) => {
-        let user = ""; //read user from DB using socket.handshake.decoded_token.email
-        let message = {
-            channel: data.channel,
-            user: user,
+    io.to('0').emit('action', {
+        type: 'message',
+        message: {
+            key: 0,
+            channel: 0,
+            user: 0,
             timestamp: new Date(),
-            content: data.text
-        };
-        //save to database
-        //read from database
-        io.to(message.channel).emit(message);
+            content: "Yo dawg!"
+        }
     });
 });
