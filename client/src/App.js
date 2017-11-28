@@ -6,7 +6,9 @@ import Chat from './components/Chat'
 class App extends Component {
   render() {
     return (
-      <Chat />
+      <div className='App'>
+        <Chat />
+      </div>
     );
   }
 }
