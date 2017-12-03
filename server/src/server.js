@@ -15,8 +15,8 @@ io.on('connection', (socket) => {
                 let user = ""; //read user from DB using socket.handshake.decoded_token.email
                 let action = {
                     type: 'message',
+                    channel: data.channel,
                     message: {
-                        channel: data.channel,
                         user: user,
                         timestamp: new Date(),
                         content: data.text
@@ -37,26 +37,28 @@ io.on('connection', (socket) => {
         type: 'init',
         data: {
             user: {
-                id: 0,
+                id: 1,
                 name: "rand",
                 admin: false
             },
-            users: [],
-            channels: [
-                {
-                    key: 0,
-                    name: "general",
-                    messages: [
-                    ]
+            users: {
+                "132": {
+                    name: "username2"
                 }
-            ]
+              },
+            channels: {
+                "0": {
+                  name: "general",
+                  messages: {
+                  }
+                }
+              }
         }
     });
     io.to('0').emit('action', {
         type: 'message',
+        channel:"general",
         message: {
-            key: 0,
-            channel: 0,
             user: 0,
             timestamp: new Date(),
             content: "Yo dawg!"
