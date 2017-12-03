@@ -23,6 +23,5 @@ tzatt_wit_konste
   * Send some of the newest messages
 * message <data>
 
-#Installing mongoDB
-Install according to this tutorial:
-https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
+# Installing mongoDB
+Install according to [this tutorial](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
