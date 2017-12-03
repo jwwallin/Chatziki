@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import createSocketIoMiddleware from 'redux-socket.io';
 import io from 'socket.io-client';
 
-import Chat from './components/Chat';
+import Chat from './containers/Chat';
 import rootReducer from './reducers/index.js';
 import './App.css';
 
@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Provider store={store}>
-          <Chat />
+          <Chat messages={[]} />
         </Provider>
       </div>
     );
