@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-import './ChannelBar.css'
+import './ChannelBar.css';
 
 export default class ChannelBar extends Component {
     render () {
         return (
-            <div>
+            <div className='ChannelBar'>
                 This is a Channel Bar!
             </div>
         );

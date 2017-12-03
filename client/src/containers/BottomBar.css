@@ -1,4 +1,7 @@
 .BottomBar {
   background-color: paleturquoise;
   color: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
