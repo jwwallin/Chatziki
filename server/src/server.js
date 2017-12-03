@@ -58,8 +58,9 @@ io.on('connection', (socket) => {
     io.to('0').emit('action', {
         type: 'message',
         channel:"general",
+        key: 1,
         message: {
-            user: 0,
+            senderId: 0,
             timestamp: new Date(),
             content: "Yo dawg!"
         }
