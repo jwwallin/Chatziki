@@ -1,3 +1,3 @@
-export function user(state = {}, action) {
+export function user(state={}, action) {
   return state;
 }
