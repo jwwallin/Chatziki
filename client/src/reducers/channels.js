@@ -16,7 +16,7 @@ const initialState = {
 export function channels(state=initialState, action) {
   switch (action.type) {
     case 'message':
-      const newState = Object.assign({}, state);
+      const newState = JSON.parse(JSON.stringify(state))
       newState[action.channel].messages[action.key] = action.message;
       return newState;
     default:

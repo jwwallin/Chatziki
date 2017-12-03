@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chat from './containers/Chat';
+import ChatContainer from './containers/ChatContainer';
 import ChannelBar from './containers/ChannelBar';
 import BottomBar from './containers/BottomBar'
 import './App.css';
@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className='App'>
           <ChannelBar />
-          <Chat messages={[]} />
+          <ChatContainer />
           <BottomBar />
       </div>
     );
