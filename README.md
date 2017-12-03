@@ -24,4 +24,4 @@ tzatt_wit_konste
 * message <data>
 
 # Installing mongoDB
-Install according to [this tutorial](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
+Install according to [this tutorial](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)[.](https://en.wikipedia.org/wiki/Full_stop)
