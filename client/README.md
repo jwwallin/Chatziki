@@ -15,6 +15,7 @@
       ]
     }
   ],
+  VisibleChannel: int,
   User: {
     Id: int
     Name: string
