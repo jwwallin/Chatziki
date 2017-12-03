@@ -14,7 +14,7 @@ export default class Chat extends Component {
       messages: []
     };
 
-    socket.on('success', () => console.log('The socket works!'));
+    socket.on('init', () => console.log('The socket works!'));
 
     socket.on('message', (data) => {
       console.log("incometh data: " + data);
