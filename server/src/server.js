@@ -1,4 +1,4 @@
-const config = require('./secret_config.js');
+const config = require('./config.js');
 const io = require('socket.io')();
 
 const mongo = require('mongodb').MongoClient;
