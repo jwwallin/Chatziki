@@ -9,7 +9,9 @@ export default class ChannelBar extends Component {
     return (
       <div className='ChannelBar'>
         {Object.keys(this.props.channels).map(
-          (channel) => <Button label={channel} onClick={this.props.onChannelClick(channel)} />
+          (channel) => <Button 
+            label={'卐' + channel} 
+            onClick={() => this.props.onChannelClick(channel)} />
         )}
       </div>
     );
