@@ -11,7 +11,7 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers/rootReducer.js';
 import { Provider } from 'react-redux';
 
-const socket = io('http://localhost:8000');
+const socket = io('localhost:8000');
 const socketIoMiddleware = createSocketIoMiddleware(socket, "server/");
 const store = applyMiddleware(socketIoMiddleware)(createStore)(
   rootReducer, 

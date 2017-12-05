@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 import { channels } from './channels';
 import { visibleChannel } from './visibleChannel';
@@ -9,7 +10,8 @@ const rootReducer = combineReducers({
   channels,
   visibleChannel,
   user,
-  users
+  users,
+  form: formReducer
 });
 
 export default rootReducer;
