@@ -4,19 +4,17 @@ import Button from '../components/Button';
 
 import './ChannelBar.css';
 
-export default class ChannelBar extends Component {
-  render () {
-    return (
-      <div className='ChannelBar'>
-        {Object.keys(this.props.channels).map(
-          (channel) => <Button 
-            label={'卐' + channel} 
-            onClick={() => this.props.onChannelClick(channel)} />
-        )}
-      </div>
-    );
-  }
-}
+const ChannelBar = ({ channels, onChannelClick }) => (
+  <div className='ChannelBar'>
+    {Object.keys(channels).map(
+      (channel) => <Button 
+        label={'卐' + channel} 
+        onClick={() => onChannelClick(channel)} />
+    )}
+  </div>
+)
+
+export default ChannelBar;
 
 ChannelBar.propTypes = {
   channels: PropTypes.arrayOf(PropTypes.string).isRequired,

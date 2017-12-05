@@ -3,15 +3,14 @@ import React, { Component } from 'react';
 import Message from '../components/Message';
 import './Chat.css';
 
-export default class Chat extends Component {
-  render() {
-    var messages = [];
-    Object.keys(this.props).forEach((key) => messages.push(this.props[key]));
+const Chat = ({ messages }) => (
+  <div className='Chat'>
+    {Object.keys(messages).map(
+      key => <Message 
+        username={messages[key].senderId} 
+        content={messages[key].content} />
+    )}
+  </div>
+);
 
-    return (
-      <div className='Chat'>
-        {messages.map((message) => <Message username={message.senderId} content={message.content} />)}
-      </div>
-    );
-  }
-}
+export default Chat;
