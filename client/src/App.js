@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ChatContainer from './containers/ChatContainer';
 import ChannelBarContainer from './containers/ChannelBarContainer';
-import BottomBarContainer from './containers/BottomBarContainer'
+import BottomBar from './containers/BottomBar'
 import './App.css';
 
-const App = () => (
-  <div className='App'>
-    <ChannelBarContainer />
-    <ChatContainer />
-    <BottomBarContainer />
-  </div>
-)
+
+class App extends Component {
+  render() {
+    return (
+      <div className='App'>
+        <ChannelBarContainer />
+        <ChatContainer />
+        <BottomBar />
+      </div>
+    );
+  }
+}
 
 export default App;
