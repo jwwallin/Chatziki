@@ -10,6 +10,17 @@ const initialState = {
         content: "Welcome to #general!"
       }
     }
+  },
+  random: {
+    channelId: 0,
+    name: 'random',
+    messages: {
+      0: {
+        senderId: 0,
+        timestamp: 0,
+        content: "Welcome to #random!"
+      }
+    }
   }
 };
 
