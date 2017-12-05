@@ -1,8 +1,16 @@
+const config = require('./secret_config.js');
 const io = require('socket.io')();
 
-const port = 8000;
-io.listen(port);
-console.log('listening on port ', port);
+const mongo = require('mongodb').MongoClient;
+const url = "mongodb://" + config.dbAddress + "/tzatt";
+
+mongo.connect(url, function (err, db) {
+    if (err) throw err;
+    console.log("Database created!");
+
+    const port = 8000;
+    io.listen(port);
+    console.log('listening on port ', port);
 
 io.on('connection', (socket) => {
     console.log("received connection");
@@ -55,14 +63,16 @@ io.on('connection', (socket) => {
               }
         }
     });
-    io.to('0').emit('action', {
-        type: 'message',
-        channel:"general",
+        io.to('0').emit('action', {
+            type: 'message',
+            channel: "general",
         key: 1,
-        message: {
+            message: {
             senderId: 0,
-            timestamp: new Date(),
-            content: "Yo dawg!"
-        }
+                timestamp: new Date(),
+                content: "Yo dawg!"
+            }
+        });
     });
+
 });
