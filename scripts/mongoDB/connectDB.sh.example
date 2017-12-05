@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh -L 27017:database.com:27017 -f user@database -N
