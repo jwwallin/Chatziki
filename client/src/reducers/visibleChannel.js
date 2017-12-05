@@ -1,3 +1,6 @@
-export function visibleChannel(state=0, action) {
-  return state;
+export function visibleChannel(state='general', action) {
+  switch (action.type) {
+    default:
+      return state;
+  }
 }
