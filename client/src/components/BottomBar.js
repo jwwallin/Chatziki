@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import './BottomBar.css';
 import { sendMessage } from '../actions';
 
-const BottomBar = ({ value, onValueChange, onSend }) => (
+const BottomBar = ({ value, channel, onValueChange, onSend }) => (
   <div className='BottomBar'>
     <input 
       value={value}
       onChange={(event) => onValueChange(event.target.value)} />
-    <button onClick={onSend}>Send</button>
+    <button onClick={(value, channel) => onSend(value, channel)}>Send</button>
   </div>
 );
 
