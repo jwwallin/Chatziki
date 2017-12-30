@@ -14,7 +14,7 @@ mongo.connect(url, function (err, db) {
 
   io.on('connection', (socket) => {
     console.log("received connection");
-    socket.join('0');
+    socket.join('general');
 
     //received events
     socket.on('action', (action) => {
@@ -55,15 +55,14 @@ mongo.connect(url, function (err, db) {
           }
         },
         channels: {
-          "0": {
-            name: "general",
+          "general": {
             messages: {
             }
           }
         }
       }
     });
-    io.to('0').emit('action', {
+    io.to('general').emit('action', {
       type: 'message',
       channel: "general",
       key: 1,
