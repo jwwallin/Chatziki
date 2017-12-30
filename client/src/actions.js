@@ -4,10 +4,22 @@
 
 export const SET_VISIBLE_CHANNEL = 'SET_VISIBLE_CHANNEL';
 
+export const SET_MESSAGE_FIELD_VALUE = 'SET_MESSAGE_FIELD_VALUE';
+
+export const SEND_MESSAGE = 'SEND_MESSAGE';
+
  /*
   * action creators
   */
 
 export function setVisibleChannel(channel) {
   return { type: SET_VISIBLE_CHANNEL, channel };
+}
+
+export function setMessageFieldValue(value) {
+  return { type: SET_MESSAGE_FIELD_VALUE, value };
+}
+
+export function sendMessage(message) {
+  return { type: SEND_MESSAGE, message };
 }

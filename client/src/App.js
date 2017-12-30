@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ChatContainer from './containers/ChatContainer';
 import ChannelBarContainer from './containers/ChannelBarContainer';
-import BottomBar from './containers/BottomBar'
+import BottomBarContainer from './containers/BottomBarContainer'
 import './App.css';
 
 
@@ -11,7 +11,7 @@ class App extends Component {
       <div className='App'>
         <ChannelBarContainer />
         <ChatContainer />
-        <BottomBar />
+        <BottomBarContainer />
       </div>
     );
   }

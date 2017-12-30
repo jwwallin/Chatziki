@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ChannelBar from '../components/ChannelBar';
-import { setVisibleChannel } from '../actions'
+import { setVisibleChannel } from '../actions';
 
 function mapStateToProps(state, ownProps) {
   return { channels: state.channels };

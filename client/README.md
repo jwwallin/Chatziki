@@ -15,7 +15,8 @@
       ]
     }
   ],
-  VisibleChannel: string,
+  visibleChannel: string,
+  messageField: string,
   User: {
     Id: int
     Name: string
