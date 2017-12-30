@@ -62,16 +62,21 @@ mongo.connect(url, (err, db) => {
         }
       }
     });
+    db.collection("channel_general").findOne({}, { 'sort':  [['timestamp', -1]] }, (error, message) => {
+      if (error) { throw error };
+
+      console.log(message);
     io.to('general').emit('action', {
       type: 'message',
       channel: "general",
-      key: 1,
+        key: message._id,
       message: {
-        senderId: 0,
-        timestamp: new Date(),
-        content: "Yo dawg!"
+          senderId: message.senderId,
+          timestamp: message.timestamp,
+          content: message.content
       }
     });
+  });
   });
 
 });
