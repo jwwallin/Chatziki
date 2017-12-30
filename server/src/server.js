@@ -2,7 +2,7 @@ const config = require('./config.js');
 const io = require('socket.io')();
 
 const mongo = require('mongodb').MongoClient;
-const url = "mongodb://" + config.dbAddress + "/tzatt";
+const url = "mongodb://" + config.dbAddress + "/dev_Chatziki";
 
 mongo.connect(url, function (err, db) {
   if (err) throw err;
