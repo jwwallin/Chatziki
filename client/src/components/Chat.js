@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
-import Message from '../components/Message';
+import { connect } from 'react-redux';
+import Message from './Message';
 import './Chat.css';
 
 const Chat = ({ messages }) => (
@@ -13,4 +13,8 @@ const Chat = ({ messages }) => (
   </div>
 );
 
-export default Chat;
+const mapStateToProps = (state, ownProps) => ({
+  messages: state.channels[state.visibleChannel].messages
+});
+
+export default connect(mapStateToProps)(Chat);

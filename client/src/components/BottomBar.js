@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { setMessageFieldValue, sendMessage } from '../actions';
 
 import './BottomBar.css';
-import { sendMessage } from '../actions';
 
 const BottomBar = ({ value, channel, onValueChange, onSend }) => (
   <div className='BottomBar'>
@@ -12,4 +13,18 @@ const BottomBar = ({ value, channel, onValueChange, onSend }) => (
   </div>
 );
 
-export default BottomBar;
+const mapStateToProps = (state, ownProps) => ({
+  value: state.messageField, 
+  channel: state.visibleChannel
+});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  onValueChange(value) { 
+    dispatch(setMessageFieldValue(value));
+  }, 
+  onSend(message, channel) {
+    dispatch(sendMessage(message, channel));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BottomBar);

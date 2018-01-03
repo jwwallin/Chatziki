@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ChatContainer from './containers/ChatContainer';
-import ChannelBarContainer from './containers/ChannelBarContainer';
-import BottomBarContainer from './containers/BottomBarContainer'
+import Chat from './components/Chat';
+import ChannelBar from './components/ChannelBar';
+import BottomBar from './components/BottomBar'
 import './App.css';
 
 
@@ -9,9 +9,9 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
-        <ChannelBarContainer />
-        <ChatContainer />
-        <BottomBarContainer />
+        <ChannelBar />
+        <Chat />
+        <BottomBar />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Button from '../components/Button';
+import { connect } from 'react-redux';
+import { setVisibleChannel } from '../actions';
+import Button from './Button';
 
 import './ChannelBar.css';
 
@@ -12,11 +13,16 @@ const ChannelBar = ({ channels, onChannelClick }) => (
         onClick={() => onChannelClick(channel)} />
     )}
   </div>
-)
+);
 
-export default ChannelBar;
+const mapStateToProps = (state, ownProps) => ({
+  channels: state.channels
+});
 
-ChannelBar.propTypes = {
-  channels: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onChannelClick: PropTypes.func.isRequired
-}
+const mapDispatchToProps = (dispatch, ownProps) => ({ 
+  onChannelClick(channel) {
+    dispatch(setVisibleChannel(channel)) 
+  }, 
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelBar);
