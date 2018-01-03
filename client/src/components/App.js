@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Chat from './components/Chat';
-import ChannelBar from './components/ChannelBar';
-import BottomBar from './components/BottomBar'
+import Chat from './Chat';
+import ChannelBar from './ChannelBar';
+import BottomBar from './BottomBar'
 import './App.css';
-
 
 class App extends Component {
   render() {
