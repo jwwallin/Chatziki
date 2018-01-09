@@ -4,8 +4,10 @@ const io = require('socket.io')();
 const mongo = require('mongodb').MongoClient;
 const url = "mongodb://" + config.dbAddress + "/dev_Chatziki";
 
-mongo.connect(url, (err, db) => {
-  if (err) throw err;
+mongo.connect(url, (err, database) => {
+  if (err) return console.log(err);
+
+  const db = database.db("dev_Chatziki");
   console.log("Database connected!");
 
   const port = 8000;
