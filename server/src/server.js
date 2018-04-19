@@ -22,19 +22,19 @@ mongo.connect(url, (err, database) => {
     socket.on('action', (action) => {
       switch (action.type) {
         case 'message':
-          let user = "userNameFetchingNotImplemented"; //read user from DB using socket.handshake.decoded_token.email
-          let newAction = {
+          let user = ""; //read user from DB using socket.handshake.decoded_token.email
+          let action = {
             type: 'message',
-            channel: action.data.channel,
+            channel: data.channel,
             message: {
-              senderId: user,
+              user: user,
               timestamp: new Date(),
-              content: action.data.text
+              content: data.text
             }
           };
-          db.collection("channel_" + newAction.channel).insert(newAction.message);
+          //save to database
           //read from database
-          io.to(newAction.channel).emit('action', newAction);
+          io.to(action.message.channel).emit('action', action);
           break;
 
         default:
@@ -68,17 +68,17 @@ mongo.connect(url, (err, database) => {
       if (error) { throw error };
 
       console.log(message);
-      io.to('general').emit('action', {
-        type: 'message',
-        channel: "general",
+    io.to('general').emit('action', {
+      type: 'message',
+      channel: "general",
         key: message._id,
-        message: {
+      message: {
           senderId: message.senderId,
           timestamp: message.timestamp,
           content: message.content
-        }
-      });
+      }
     });
+  });
   });
 
 });
